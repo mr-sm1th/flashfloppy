@@ -140,6 +140,8 @@ void board_setup_rotary_exti(void)
 
 bool_t board_jc_strapped(void)
 {
+    return TRUE;
+#if 0
     if (is_32pin_mcu) {
 #if !defined(NDEBUG)
         return FALSE; /* PA9 is used for serial tx */
@@ -148,6 +150,7 @@ bool_t board_jc_strapped(void)
 #endif
     }
     return !gpio_read_pin(gpiob, 1);
+#endif
 }
 
 void board_init(void)
